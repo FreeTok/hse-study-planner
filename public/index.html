@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Study Planner</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="planner-panel" aria-labelledby="app-title">
+        <div class="intro">
+          <p class="eyebrow">учебный планировщик</p>
+          <h1 id="app-title">Study Planner</h1>
+          <p class="lead">Раскладываю подготовку к дедлайну по дням, чтобы заранее увидеть нагрузку.</p>
+        </div>
+
+        <form class="planner-form" id="planner-form">
+          <label>
+            <span>Задание</span>
+            <input name="title" type="text" maxlength="80" placeholder="Например: доклад по истории" required>
+          </label>
+
+          <div class="form-grid">
+            <label>
+              <span>Дедлайн</span>
+              <input name="deadline" type="date" required>
+            </label>
+
+            <label>
+              <span>Всего часов</span>
+              <input name="totalHours" type="number" min="0.5" step="0.5" value="8" required>
+            </label>
+
+            <label>
+              <span>Часов в день</span>
+              <input name="dailyLimit" type="number" min="0.5" step="0.5" value="2" required>
+            </label>
+          </div>
+
+          <button type="submit">Рассчитать план</button>
+        </form>
+      </section>
+
+      <section class="result-panel" aria-live="polite">
+        <div class="result-empty" id="empty-state">
+          <div class="calendar-mark" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <p>План появится здесь после расчета.</p>
+        </div>
+
+        <div class="result-card hidden" id="result-card">
+          <p class="result-label" id="risk-label">статус</p>
+          <h2 id="result-title"></h2>
+          <p id="result-message"></p>
+
+          <div class="metrics">
+            <div>
+              <span id="days-count">0</span>
+              <small>дней</small>
+            </div>
+            <div>
+              <span id="hours-per-day">0</span>
+              <small>часа в день</small>
+            </div>
+            <div>
+              <span id="spare-hours">0</span>
+              <small>часов запас</small>
+            </div>
+          </div>
+
+          <div class="daily-list" id="daily-list" aria-label="План по дням"></div>
+        </div>
+
+        <p class="error hidden" id="error-message"></p>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
