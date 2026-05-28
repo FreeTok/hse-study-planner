@@ -75,6 +75,15 @@ http://localhost:3000
 npm run check
 ```
 
+## CI
+
+В проекте есть GitHub Actions workflow `.github/workflows/ci.yml`. Он запускается на Pull Request и на push в `main`.
+
+Сейчас pipeline делает две вещи:
+
+- устанавливает зависимости через `npm ci`;
+- запускает `npm run check`, чтобы проверить синтаксис backend и frontend JavaScript.
+
 ## Планы по развитию
 
 1. Создать стартовый README и обсудить идею через Pull Request.
