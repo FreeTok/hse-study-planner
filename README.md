@@ -84,6 +84,26 @@ npm run check
 - устанавливает зависимости через `npm ci`;
 - запускает `npm run check`, чтобы проверить синтаксис backend и frontend JavaScript.
 
+## Docker
+
+Сборка образа:
+
+```bash
+docker build -t study-planner .
+```
+
+Запуск контейнера:
+
+```bash
+docker run --rm -p 3000:3000 study-planner
+```
+
+После запуска приложение доступно по адресу:
+
+```text
+http://localhost:3000
+```
+
 ## Планы по развитию
 
 1. Создать стартовый README и обсудить идею через Pull Request.
