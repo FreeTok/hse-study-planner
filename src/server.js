@@ -101,20 +101,26 @@ async function serveStatic(request, response) {
   }
 }
 
-const server = createServer(async (request, response) => {
-  if (request.url?.startsWith('/api/plan')) {
-    await handlePlanRequest(request, response);
-    return;
-  }
+export function createAppServer() {
+  return createServer(async (request, response) => {
+    if (request.url?.startsWith('/api/plan')) {
+      await handlePlanRequest(request, response);
+      return;
+    }
 
-  await serveStatic(request, response);
-});
+    await serveStatic(request, response);
+  });
+}
 
-server.on('error', (error) => {
-  console.error('Не удалось запустить сервер:', error.message);
-  process.exitCode = 1;
-});
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  const server = createAppServer();
 
-server.listen(PORT, HOST, () => {
-  console.log(`Study Planner is running: http://${HOST}:${PORT}`);
-});
+  server.on('error', (error) => {
+    console.error('Не удалось запустить сервер:', error.message);
+    process.exitCode = 1;
+  });
+
+  server.listen(PORT, HOST, () => {
+    console.log(`Study Planner is running: http://${HOST}:${PORT}`);
+  });
+}
