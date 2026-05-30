@@ -75,6 +75,12 @@ http://localhost:3000
 npm run check
 ```
 
+Запуск тестов:
+
+```bash
+npm test
+```
+
 ## CI
 
 В проекте есть GitHub Actions workflow `.github/workflows/ci.yml`. Он запускается на Pull Request и на push в `main`.
@@ -82,7 +88,8 @@ npm run check
 Сейчас pipeline делает две вещи:
 
 - устанавливает зависимости через `npm ci`;
-- запускает `npm run check`, чтобы проверить синтаксис backend и frontend JavaScript.
+- запускает `npm run check`, чтобы проверить синтаксис backend и frontend JavaScript;
+- запускает `npm test`, чтобы проверить расчет плана и API.
 
 ## Docker
 
