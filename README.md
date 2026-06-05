@@ -90,6 +90,7 @@ npm test
 - устанавливает зависимости через `npm ci`;
 - запускает `npm run check`, чтобы проверить синтаксис backend и frontend JavaScript;
 - запускает `npm test`, чтобы проверить расчет плана и API.
+- запускает Semgrep, чтобы проверить простые правила безопасности для JavaScript.
 
 ## Docker
 
