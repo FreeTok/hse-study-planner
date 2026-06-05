@@ -1,0 +1,21 @@
+rules:
+  - id: javascript-no-eval
+    languages:
+      - javascript
+    severity: ERROR
+    message: Не используйте eval, потому что он выполняет строку как код.
+    pattern: eval(...)
+
+  - id: javascript-no-inner-html
+    languages:
+      - javascript
+    severity: WARNING
+    message: Не записывайте пользовательские данные через innerHTML, это может привести к XSS.
+    pattern: $ELEMENT.innerHTML = $VALUE
+
+  - id: javascript-no-document-write
+    languages:
+      - javascript
+    severity: WARNING
+    message: document.write усложняет контроль HTML и может привести к небезопасной вставке данных.
+    pattern: document.write(...)
